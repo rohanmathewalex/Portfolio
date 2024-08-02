@@ -25,31 +25,9 @@ const structuredData = {
     "@type": "CollegeOrUniversity",
     "name": "Conestoga College"
   },
-  "worksFor": [
-    {
-      "@type": "Organization",
-      "name": "Dine Direct",
-      "sameAs": "https://dinelink-url.com"
-    },
-    {
-      "@type": "Organization",
-      "name": "MEDIAGOD",
-      "sameAs": "https://www.mediagod.in/"
-    },
-    {
-      "@type": "Organization",
-      "name": "T3 Adventz",
-      "sameAs": "https://t3adventz.com/"
-    },
-    {
-      "@type": "Organization",
-      "name": "Headstarter",
-      "sameAs": "https://headstarter.co/"
-    }
-  ],
   "hasOccupation": [
     {
-      "@type": "Person",
+      "@type": "Occupation",
       "jobTitle": "Full Stack Developer & Project Lead",
       "startDate": "2022-11",
       "endDate": "2023-04",
@@ -57,7 +35,7 @@ const structuredData = {
       "description": "Led full-stack development projects using Node.js and React.js, delivering 20+ RESTful APIs and frontend features."
     },
     {
-      "@type": "Person",
+      "@type": "Occupation",
       "jobTitle": "Web Developer",
       "startDate": "2021-11",
       "endDate": "2022-12",
@@ -65,7 +43,7 @@ const structuredData = {
       "description": "Developed and maintained 25+ responsive web applications using React.js, HTML, CSS, and TypeScript."
     },
     {
-      "@type": "Person",
+      "@type": "Occupation",
       "jobTitle": "Junior Web Developer",
       "startDate": "2020-07",
       "endDate": "2021-08",
@@ -73,7 +51,7 @@ const structuredData = {
       "description": "Assisted in designing and developing web applications using React.js, ensuring seamless integration and performance."
     },
     {
-      "@type": "Person",
+      "@type": "Occupation",
       "jobTitle": "AI Software Engineering Fellow",
       "startDate": "2024-07",
       "endDate": "2024-08",
@@ -87,6 +65,7 @@ const structuredData = {
     "url": "https://rohanmathewalex.vercel.app/"
   }
 };
+
 
 
 
