@@ -49,48 +49,36 @@ const structuredData = {
   ],
   "hasOccupation": [
     {
-      "@type": "Occupation",
-      "name": "Full Stack Developer & Project Lead",
-      "description": "Led full-stack development projects using Node.js and React.js, delivering 20+ RESTful APIs and frontend features.",
+      "@type": "Person",
+      "jobTitle": "Full Stack Developer & Project Lead",
       "startDate": "2022-11",
       "endDate": "2023-04",
-      "employer": {
-        "@type": "Organization",
-        "name": "Dine Direct"
-      }
+      "name": "Dine Direct",
+      "description": "Led full-stack development projects using Node.js and React.js, delivering 20+ RESTful APIs and frontend features."
     },
     {
-      "@type": "Occupation",
-      "name": "Web Developer",
-      "description": "Developed and maintained 25+ responsive web applications using React.js, HTML, CSS, and TypeScript.",
+      "@type": "Person",
+      "jobTitle": "Web Developer",
       "startDate": "2021-11",
       "endDate": "2022-12",
-      "employer": {
-        "@type": "Organization",
-        "name": "MEDIAGOD"
-      }
+      "name": "MEDIAGOD",
+      "description": "Developed and maintained 25+ responsive web applications using React.js, HTML, CSS, and TypeScript."
     },
     {
-      "@type": "Occupation",
-      "name": "Junior Web Developer",
-      "description": "Assisted in designing and developing web applications using React.js, ensuring seamless integration and performance.",
+      "@type": "Person",
+      "jobTitle": "Junior Web Developer",
       "startDate": "2020-07",
       "endDate": "2021-08",
-      "employer": {
-        "@type": "Organization",
-        "name": "T3 Adventz"
-      }
+      "name": "T3 Adventz",
+      "description": "Assisted in designing and developing web applications using React.js, ensuring seamless integration and performance."
     },
     {
-      "@type": "Occupation",
-      "name": "AI Software Engineering Fellow",
-      "description": "Participated in the Headstarter AI Software Engineering Fellowship program, building AI 4 projects and contributing to team-based projects. Final goal to generate $1000 in revenue / 1000 users in waiting list",
+      "@type": "Person",
+      "jobTitle": "AI Software Engineering Fellow",
       "startDate": "2024-07",
       "endDate": "2024-08",
-      "employer": {
-        "@type": "Organization",
-        "name": "Headstarter"
-      }
+      "name": "Headstarter",
+      "description": "Participated in the Headstarter AI Software Engineering Fellowship program, building AI 4 projects and contributing to team-based projects. Final goal to generate $1000 in revenue / 1000 users in waiting list."
     }
   ],
   "mainEntityOfPage": {
@@ -99,6 +87,7 @@ const structuredData = {
     "url": "https://rohanmathewalex.vercel.app/"
   }
 };
+
 
 
 
