@@ -51,7 +51,7 @@ const Hero = () => {
           <motion.h1 variants={textVariants}>
            Full Stack Web Developer
           </motion.h1>
-          <motion.p variants={textVariants}>I  code and Ships Code.</motion.p>
+          <motion.p variants={textVariants}>I write code and Ships Code.</motion.p>
           <motion.div variants={textVariants} className="buttons">
             <motion.button variants={textVariants}>
               See the Latest Works
