@@ -1,0 +1,153 @@
+.experience {
+    padding: 80px 0;
+    background-color: #0c0c1d;
+    color: lightgray;
+    position: relative;
+  
+    .section-title {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 60px;
+      color: #f9a826;
+    }
+  
+    .timeline {
+      position: relative;
+      max-width: 1200px; /* Increased width for full container */
+      margin: auto;
+      padding: 0 20px;
+      height: 600px; /* Fixed height */
+      overflow-y: auto; /* Enable vertical scrolling */
+      padding-right: 10px; /* Space for scrollbar */
+  
+      /* Custom scrollbar styling */
+      scrollbar-width: thin;
+      scrollbar-color: #f9a826 #1e1e2f;
+  
+      &::-webkit-scrollbar {
+        width: 6px;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        background-color: #f9a826;
+        border-radius: 10px;
+      }
+  
+      &::-webkit-scrollbar-track {
+        background: #1e1e2f;
+      }
+  
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: calc(100% + 80px);
+        width: 4px;
+        background-color: #f9a826;
+      }
+  
+      .timeline-item {
+        position: relative;
+        width: 45%;
+        padding: 20px;
+        background-color: #1e1e2f;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        margin-bottom: 40px;
+        transition: transform 0.3s ease-in-out;
+  
+        &:hover {
+          transform: translateY(-10px);
+        }
+  
+        &:nth-child(even) {
+          left: 55%; /* Right side */
+        }
+  
+        &:nth-child(odd) {
+          left: 5%; /* Adjusted margin to ensure the left-side cards are visible */
+        }
+  
+        .timeline-icon {
+          position: absolute;
+          top: 20px;
+          left: -40px; /* Adjusted to ensure the icon is fully visible */
+          font-size: 30px;
+          background-color: #f9a826;
+          color: #0c0c1d;
+          padding: 10px;
+          border-radius: 50%;
+        }
+  
+        .timeline-content {
+          h3 {
+            font-size: 22px;
+            color: #f9a826;
+          }
+  
+          h4 {
+            font-size: 20px;
+            color: lightgray;
+            margin-bottom: 10px;
+          }
+  
+          span {
+            display: block;
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: gray;
+          }
+  
+          ul {
+            list-style: none;
+            padding-left: 0;
+  
+            li {
+              margin-bottom: 10px;
+              font-size: 16px;
+              color: #ddd;
+  
+              &::before {
+                content: "→";
+                color: #f9a826;
+                padding-right: 8px;
+              }
+            }
+          }
+        }
+      }
+  
+      /* Last timeline item spacing */
+      .timeline-item:last-child {
+        margin-bottom: 150px;
+      }
+    }
+  
+    /* Adding extra space below the last item for transition to the next component */
+    padding-bottom: 200px;
+  }
+  
+  /* For smaller screens */
+  @media (max-width: 768px) {
+    .timeline {
+      height: auto;
+  
+      &::before {
+        left: 20px;
+      }
+  
+      .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        padding-left: 50px;
+        padding-right: 50px;
+  
+        .timeline-icon {
+          left: 10px;
+        }
+      }
+    }
+  }
+  
