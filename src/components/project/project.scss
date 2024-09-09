@@ -1,73 +1,109 @@
-@import "../../app.scss";
-
 .projects {
-  background: linear-gradient(180deg, #0c0c1d, #111132);
+  padding: 80px 20px;
+  background-color: #0c0c1d;
   color: lightgray;
-  padding: 50px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 
-  .heading {
+  .section-title {
     font-size: 48px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    color: #f9a826;
   }
 
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+  .tabs {
+    display: flex;
+    justify-content: center;
     gap: 20px;
-    max-width: 1200px;
-    width: 100%;
+    margin-bottom: 40px;
 
-    @include mobile {
-      grid-template-columns: 1fr;
+    button {
+      background-color: transparent;
+      border: 2px solid #f9a826;
+      color: #f9a826;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #f9a826;
+        color: #0c0c1d;
+      }
+
+      &.active {
+        background-color: #f9a826;
+        color: #0c0c1d;
+      }
     }
+  }
+
+  .project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
 
     .project-card {
-      background: #1e1e2f;
-      border: 1px solid #333;
+      background-color: #1e1e2f;
       padding: 20px;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       text-align: center;
-      transition: all 0.3s ease;
 
       .project-image {
         width: 100%;
-        height: auto;
-        max-height: 200px;
+        height: 200px;
         object-fit: cover;
         border-radius: 10px;
         margin-bottom: 15px;
       }
 
       h3 {
+        font-size: 24px;
         margin-bottom: 10px;
+        color: #f9a826;
       }
 
       p {
-        margin-bottom: 10px;
+        margin-bottom: 20px;
+        font-size: 16px;
       }
 
-      .tech-stack {
-        font-style: italic;
-        color: #aaa;
+      .tech-icons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        .tech-icon {
+          width: 40px;
+          height: 40px;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
       }
 
-      button {
-        background-color: orange;
-        color: #fff;
-        border: none;
-        padding: 10px;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+      .links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
 
-        &:hover {
-          background-color: darkorange;
+        button {
+          padding: 10px 20px;
+          background-color: #f9a826;
+          color: #0c0c1d;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: darkorange;
+          }
         }
       }
     }

@@ -1,78 +1,130 @@
-import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 import "./project.scss";
 
-const projectVariants = {
-  initial: {
-    opacity: 0,
-    scale: 0.8,
-  },
-  animate: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.5,
-      staggerChildren: 0.1,
-    },
-  },
-};
+// Import the icons
+import chatgptIcon from "../../assets/icons/chatgpt.png";
+import reactIcon from "../../assets/icons/react.png";
+import nodejsIcon from "../../assets/icons/nodejs.png";
+import pythonIcon from "../../assets/icons/Python.png";
+import jsIcon from "../../assets/icons/js.png";
+
+
 
 const Projects = () => {
-  const ref = useRef();
-  const isInView = useInView(ref, { margin: "-100px" });
+  const [activeTab, setActiveTab] = useState("AI Projects");
 
-  const projects = [
-    {
-      title: "Project One",
-      description: "Description for project one.",
-      techStack: "React, Node.js, MongoDB",
-      image: "https://via.placeholder.com/400", // Replace with actual image URL
-    },
-    {
-      title: "Project Two",
-      description: "Description for project two.",
-      techStack: "Vue, Express, MySQL",
-      image: "https://via.placeholder.com/400", // Replace with actual image URL
-    },
-    {
-      title: "Project Three",
-      description: "Description for project three.",
-      techStack: "Angular, Django, PostgreSQL",
-      image: "https://via.placeholder.com/400", // Replace with actual image URL
-    },
-    {
-      title: "Project Four",
-      description: "Description for project four.",
-      techStack: "Svelte, Flask, SQLite",
-      image: "https://via.placeholder.com/400", // Replace with actual image URL
-    },
-  ];
+  const projectsData = {
+    "AI Projects": [
+      {
+        title: "SupportSynth",
+        description: "SupportSynth is an AI-powered chat application designed to enhance customer support interactions. ",
+        technologies: [chatgptIcon, reactIcon, nodejsIcon],
+        githubLink: "https://github.com/rohanmathewalex/Supportsynth",
+        linkedinLink: "https://www.linkedin.com/posts/rohanmathewalex_ai-chatbot-webdevelopment-activity-7229175052250861569-NHYz?utm_source=share&utm_medium=member_desktop",
+        image: "slatemind.png",
+      },
+      {
+        title: "RateMyProfessor AI",
+        description:
+          "AI-powered professor recommendation system using Pinecone and GPT-4.",
+        technologies: [chatgptIcon, reactIcon, pythonIcon],
+        githubLink: "https://github.com/rohanmathewalex/rmp-ai",
+        linkedinLink: "https://linkedin.com/in/rohanmathewalex",
+        image: "rmp-ai.png",
+      },
+      {
+        title: "Flash Mind AI",
+        description:
+          "FlashMind is an AI-powered SaaS application designed to help users generate flashcards from any text, study efficiently, and keep track of their learning progress.",
+        technologies: [chatgptIcon, reactIcon, pythonIcon],
+        githubLink: "https://github.com/rohanmathewalex/flashcards-ai",
+        linkedinLink: "https://www.linkedin.com/in/rohanmathewalex/",
+        image: "rmp-ai.png",
+      },
+      {
+        title: "Pantry Tracker",
+        description:
+          "AI-powered application that helps you manage your pantry items and find recipe recommendations based on the ingredients you have.",
+        technologies: [chatgptIcon, reactIcon, pythonIcon],
+        githubLink: "https://github.com/rohanmathewalex/pantry-tracker",
+        linkedinLink: "https://www.linkedin.com/in/rohanmathewalex/",
+        image: "rmp-ai.png",
+      },
+    ],
+    "Other Projects": [
+      {
+        title: "TaskLink",
+        description:
+          "A project management app built with React, GraphQL, Node.js, and MongoDB.",
+        technologies: [reactIcon, nodejsIcon, jsIcon],
+        githubLink: "https://github.com/rohanmathewalex/tasklink",
+        image: "tasklink.png",
+      },
+      {
+        title: "Household Haven",
+        description:
+          "Microservices architecture for managing household items and services.",
+        technologies: [nodejsIcon, reactIcon, jsIcon],
+        githubLink: "https://github.com/rohanmathewalex/household-haven",
+        image: "household-haven.png",
+      },
+    ],
+  };
 
   return (
-    <motion.div
-      className="projects"
-      variants={projectVariants}
-      initial="initial"
-      animate={isInView ? "animate" : "initial"}
-      ref={ref}
-    >
-      <h2 className="heading">Projects</h2>
-      <div className="grid">
-        {projects.map((project, index) => (
+    <section className="projects">
+      <h2 className="section-title">Projects</h2>
+      <div className="tabs">
+        <button
+          className={activeTab === "AI Projects" ? "active" : ""}
+          onClick={() => setActiveTab("AI Projects")}
+        >
+          AI Projects
+        </button>
+        <button
+          className={activeTab === "Other Projects" ? "active" : ""}
+          onClick={() => setActiveTab("Other Projects")}
+        >
+          Other Projects
+        </button>
+      </div>
+      
+      <div className="project-cards">
+        {projectsData[activeTab].map((project, index) => (
           <motion.div
-            key={index}
             className="project-card"
+            key={index}
             whileHover={{ scale: 1.05, boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)" }}
           >
-            <img src={project.image} alt={project.title} className="project-image" />
+            <img
+              src={project.image}
+              alt={project.title}
+              className="project-image"
+            />
             <h3>{project.title}</h3>
             <p>{project.description}</p>
-            <p className="tech-stack">{project.techStack}</p>
-            <button>View Project</button>
+            <div className="tech-icons">
+              {project.technologies.map((icon, idx) => (
+                <span key={idx} className="tech-icon">
+                  <img src={icon} alt="Technology Icon" />
+                </span>
+              ))}
+            </div>
+            <div className="links">
+              <a href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                <button>View on GitHub</button>
+              </a>
+              {activeTab === "AI Projects" && (
+                <a href={project.linkedinLink} target="_blank" rel="noopener noreferrer">
+                  <button>View on LinkedIn</button>
+                </a>
+              )}
+            </div>
           </motion.div>
         ))}
       </div>
-    </motion.div>
+    </section>
   );
 };
 
