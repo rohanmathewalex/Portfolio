@@ -2,7 +2,9 @@ import { useRef } from "react";
 import "./portfolio.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-// Featured Project Component for SlateMind
+// Import the image from assets
+import portfolioBanner from "../../assets/banner/portfoliobanner.png";
+
 const FeaturedWork = () => {
   const ref = useRef();
 
@@ -20,14 +22,14 @@ const FeaturedWork = () => {
   return (
     <div className="featured" ref={ref}>
       <div className="progress">
-        <h1>Featured Work: SlateMind</h1>
+        <h1 className="section-title">Featured Work: SlateMind</h1>
         <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
 
       <motion.div className="content" style={{ y }}>
         <div className="image-container">
           <img
-            src="https://via.placeholder.com/600" // Replace with actual SlateMind image
+            src={portfolioBanner} // Replace with your actual SlateMind image
             alt="SlateMind Screenshot"
           />
         </div>
@@ -56,6 +58,9 @@ const FeaturedWork = () => {
           <div className="tech-stack">
             <div className="tech-card">
               <p>React.js</p>
+            </div>
+            <div className="tech-card">
+              <p>TypeScript.js</p>
             </div>
             <div className="tech-card">
               <p>Node.js</p>
