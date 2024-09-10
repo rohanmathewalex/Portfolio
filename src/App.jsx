@@ -27,22 +27,22 @@ const App = () => {
         <Services />
       </section>
      
-      <section id="Portfolio">
+      <section id="">
         <Parallax type="portfolio" />
       </section>
-      <section>
+
+      <section id="Portfolio">
      <Portfolio />
      </section>
 
-      <section id="projects">
+      <section id="Portfolio">
         <Projects />
       </section>
      
-     
-    
-      <section id="experience">
+      <section id="Experience">
       <Experience />
       </section>
+
       <section id="Contact">
         <Contact />
       </section>
