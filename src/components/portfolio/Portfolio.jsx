@@ -2,84 +2,91 @@ import { useRef } from "react";
 import "./portfolio.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 
-const items = [
-  {
-    id: 1,
-    title: "Household-Haven",
-    img: "https://images.pexels.com/photos/18073372/pexels-photo-18073372/free-photo-of-young-man-sitting-in-a-car-on-a-night-street.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Restructured monolithic Node.js application to a microservices architecture for enhanced scalability and maintainability.",
-  },
-  {
-    id: 2,
-    title: "PalmTalk",
-    img: "https://images.pexels.com/photos/18023772/pexels-photo-18023772/free-photo-of-close-up-of-a-person-holding-a-wristwatch.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Implemented a chatbot powered by the Google PaLM 2 Bison model for natural language conversations.",
-  },
-  {
-    id: 3,
-    title: "Cymbal-Tagline-Generator-Template",
-    img: "https://images.pexels.com/photos/6894528/pexels-photo-6894528.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load",
-    desc: "Developed tools within Google Cloud's Vertex AI platform for generating evocative product descriptions and catchy taglines.",
-  },
-  {
-    id: 4,
-    title: "JobHive",
-    img: "https://images.pexels.com/photos/18540208/pexels-photo-18540208/free-photo-of-wood-landscape-water-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-    desc: "React.js-based web application simplifying job management with intuitive UX and responsive design.",
-  },
-];
-
-const Single = ({ item }) => {
+// Featured Project Component for SlateMind
+const FeaturedWork = () => {
   const ref = useRef();
 
   const { scrollYProgress } = useScroll({
     target: ref,
+    offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
-
-  return (
-    <section >
-      <div className="container">
-        <div className="wrapper">
-          <div className="imageContainer" ref={ref}>
-            <img src={item.img} alt="" />
-          </div>
-          <motion.div className="textContainer" style={{y}}>
-            <h2>{item.title}</h2>
-            <p>{item.desc}</p>
-            <button>See Demo</button>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const Portfolio = () => {
-  const ref = useRef();
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["end end", "start start"],
-  });
-
+  const y = useTransform(scrollYProgress, [0, 1], [-50, 50]);
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
   });
 
   return (
-    <div className="portfolio" ref={ref}>
+    <div className="featured" ref={ref}>
       <div className="progress">
-        <h1>Featured Works</h1>
+        <h1>Featured Work: SlateMind</h1>
         <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
-      {items.map((item) => (
-        <Single item={item} key={item.id} />
-      ))}
+
+      <motion.div className="content" style={{ y }}>
+        <div className="image-container">
+          <img
+            src="https://via.placeholder.com/600" // Replace with actual SlateMind image
+            alt="SlateMind Screenshot"
+          />
+        </div>
+
+        <div className="text-container">
+          <h2>Problem</h2>
+          <p>
+            Students often struggle with organizing study materials effectively, leading to inefficient studying and difficulty in retaining information. Traditional methods of studying can be time-consuming and lack personalization.
+          </p>
+
+          <h2>Solution</h2>
+          <p>
+            SlateMind is an AI-powered platform designed to enhance study efficiency and engagement by offering innovative tools for personalized learning.
+          </p>
+          
+          <h3>Key Features:</h3>
+          <ul>
+            <li><strong>Chat with File</strong>: Upload study materials, and SlateMind can answer questions or summarize content in real-time. Using LangChain and OpenAI, the platform helps students break down complex materials, making studying more interactive and engaging.</li>
+            
+            <li><strong>Join Study Groups</strong>: Connect with peers studying similar subjects. SlateMind fosters collaboration by allowing students to form or join study groups, discuss materials, and share resources, making the learning process more social and supportive.</li>
+            
+            <li><strong>Flashcards Generation</strong>: Automatically create flashcards from uploaded documents, helping students focus on key concepts and improve memorization. This feature transforms study materials into a more manageable format, perfect for quick reviews.</li>
+          </ul>
+
+          <h2>Tech Stack</h2>
+          <div className="tech-stack">
+            <div className="tech-card">
+              <p>React.js</p>
+            </div>
+            <div className="tech-card">
+              <p>Node.js</p>
+            </div>
+            <div className="tech-card">
+              <p>OpenAI (GPT)</p>
+            </div>
+            <div className="tech-card">
+              <p>LangChain</p>
+            </div>
+            <div className="tech-card">
+              <p>MongoDB</p>
+            </div>
+            <div className="tech-card">
+              <p>Material-UI</p>
+            </div>
+          </div>
+
+          <div className="links">
+            <a
+              href="https://slatemindai.com/" // Replace with your actual SlateMind landing page URL
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button>Visit Landing Page</button>
+            </a>
+          </div>
+        </div>
+      </motion.div>
     </div>
   );
 };
 
-export default Portfolio;
+export default FeaturedWork;
